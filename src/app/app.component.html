@@ -71,7 +71,64 @@
           <tr *ngFor="let giaoDich of danhSachGiaoDich">
             <td>{{ giaoDich.id }}</td>
             <td>{{ giaoDich.giaTriGiaoDich | number }}</td>
-            <td>{{ giaoDich.loaiGiaoDich }}</td>
+            <td *ngIf="giaoDich.loaiGiaoDich == 'A'">
+              <span
+                class="badge badge-primary"
+                style="font-size: 1rem"
+                tooltip="Tên đăng nhập, mật khẩu hoặc mã PIN (trường hợp đã xác thực tại bước đăng nhập thì không bắt buộc phải xác thực tại bước thực hiện giao dịch)"
+              >
+                Loại A
+              </span>
+            </td>
+            <td *ngIf="giaoDich.loaiGiaoDich == 'B'">
+              <span
+                class="badge badge-info"
+                style="font-size: 1rem"
+                tooltip="OTP gửi qua phương thức SMS hoặc Voice hoặc Email.
+
+                Hoặc Thẻ ma trận OTP.
+                
+                Hoặc Soft OTP/ Token OTP loại cơ bản.
+                
+                Hoặc biện pháp xác thực qua hai kênh.
+                
+                Hoặc bằng dấu hiệu nhận dạng sinh trắc học của khách hàng gắn liền với thiết bị cầm tay thông minh3.
+                
+                Hoặc Soft OTP/Token OTP loại nâng cao.
+                
+                Hoặc theo chuẩn FIDO.
+                
+                Hoặc bằng chữ ký điện tử an toàn."
+              >
+                Loại B
+              </span>
+            </td>
+            <td *ngIf="giaoDich.loaiGiaoDich == 'C'">
+              <span
+                class="badge badge-warning"
+                style="font-size: 1rem"
+                tooltip="Bằng dấu hiệu nhận dạng sinh trắc học của khách hàng: (i) khớp đúng với dữ liệu sinh trắc học được lưu trong chip của thẻ căn cước công dân (CCCD) của khách hàng do cơ quan Công an cấp4; (ii) hoặc thông qua xác thực tài khoản định danh điện tử của khách hàng do hệ thống định danh và xác thực điện tử tạo lập5.
+
+                Hoặc bằng dấu hiệu nhận dạng sinh trắc học của khách hàng khớp đúng với dữ liệu sinh trắc học được lưu trong cơ sở dữ liệu (CSDL) sinh trắc học về khách hàng đã thu thập và kiểm tra6, khuyến khích kết hợp với phương thức xác thực OTP gửi qua SMS/Voice hoặc Soft OTP/Token OTP."
+              >
+                Loại C
+              </span>
+            </td>
+            <td *ngIf="giaoDich.loaiGiaoDich == 'D'">
+              <span
+                class="badge badge-danger"
+                style="font-size: 1rem"
+                tooltip="Bằng dấu hiệu nhận dạng sinh trắc học của khách hàng: (i) khớp đúng với dữ liệu sinh trắc học được lưu trong chíp của thẻ CCCD của khách hàng do cơ quan Công an cấp4; (ii) hoặc thông qua xác thực tài khoản định danh điện tử của khách hàng do hệ thống định danh và xác thực điện tử tạo lập; (iii) hoặc khớp đúng với dữ liệu sinh trắc học được lưu trong CSDL sinh trắc học về khách hàng đã thu thập và kiểm tra6, kết hợp một trong các biện pháp xác thực sau:
+
+                Soft OTP/Token OTP loại nâng cao.
+                
+                Hoặc theo chuẩn FIDO.
+                
+                Hoặc bằng chữ ký điện tử an toàn."
+              >
+                Loại D
+              </span>
+            </td>
             <td>{{ giaoDich.nhomLoaiHinhGiaoDich }}</td>
             <td>
               {{ giaoDich.tongGiaTriCacGiaoDichTruocDo | number }}
